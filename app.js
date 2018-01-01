@@ -542,7 +542,7 @@ function prepareSendAiMessage(recipientId, messageText) {
     switch (actionText) {
       case 'input.welcome':
         console.log("Received action text %s ", response.result.action);
-        prepareSendCountry(sender);
+        prepareSendCountry(recipientId);
         break;
 
       default:
