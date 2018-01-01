@@ -872,7 +872,7 @@ app.post('/ai', (req, res) => {
   if (req.body.result.action === 'weather') {
     console.log('*** weather ***');
     let city = req.body.result.parameters['geo-city'];
-    let restUrl = 'http://api.openweathermap.org/data/2.5/weather?APPID='+WEATHER_API_KEY+'&q='+city;
+    let restUrl = 'http://api.openweathermap.org/data/2.5/weather?APPID='+OPENWEATHER_API_KEY+'&q='+city;
 
     request.get(restUrl, (err, response, body) => {
       if (!err && response.statusCode == 200) {
