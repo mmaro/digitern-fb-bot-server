@@ -60,6 +60,9 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
 const CLIENT_ACCESS_TOKEN = process.env.DIALOGFLOW_CLIENT_ACCESS_TOKEN;
 const apiaiApp = apiai(CLIENT_ACCESS_TOKEN);
 
+
+const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY;
+
 /*
  * Use your own validation token. Check that the token used in the Webhook
  * setup is the same token used here.
