@@ -534,7 +534,7 @@ function prepareSendAiMessage(recipientId, messageText) {
 
   apiai.on('response', (response) => {
     let fulfillmentContent = response.result.fulfillment;
-    console.log("Received fulfillment payload with fulfillment message %s ", fulfillmentContent);
+    console.log("Received fulfillment payload with fulfillment message %s ", JSON.stringify(fulfillmentContent));
 
     let aiText = response.result.fulfillment.speech;
     console.log(aiText);
