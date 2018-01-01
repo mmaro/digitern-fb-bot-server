@@ -528,7 +528,7 @@ prepareSendAiMessage
  */
 function prepareSendAiMessage(recipientId, messageText) {
 
-  let apiai = apiaiApp.textRequest(text, {
+  let apiai = apiaiApp.textRequest(messageText, {
     sessionId: 'refugee_info_aid'
   });
 
@@ -539,7 +539,7 @@ function prepareSendAiMessage(recipientId, messageText) {
     switch (aiText) {
 
       default:
-        sendTextMessage(sender, aiText);
+        sendTextMessage(recipientId, aiText);
     }
 
   });
