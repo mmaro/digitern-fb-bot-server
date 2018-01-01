@@ -312,7 +312,8 @@ function receivedMessage(event) {
         break;
 
       default:
-        sendTextMessage(senderID, messageText);
+        prepareSendAiMessage(senderID, messageText);
+        //sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
@@ -516,6 +517,38 @@ function sendFileMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+}
+
+
+prepareSendAiMessage
+
+/*
+ * Prepare send AI text message using the DialogFlow API AI.
+ *
+ */
+function prepareSendAiMessage(recipientId, messageText) {
+
+  let apiai = apiaiApp.textRequest(text, {
+    sessionId: 'refugee_info_aid'
+  });
+
+  apiai.on('response', (response) => {
+    let aiText = response.result.fulfillment.speech;
+    console.log(aiText);
+
+    switch (aiText) {
+
+      default:
+        sendTextMessage(sender, aiText);
+    }
+
+  });
+
+  apiai.on('error', (error) => {
+    console.log(error);
+  });
+
+  apiai.end();
 }
 
 /*
