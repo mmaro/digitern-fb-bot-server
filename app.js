@@ -540,7 +540,8 @@ function prepareSendAiMessage(recipientId, messageText) {
     console.log(aiText);
 
     switch (actionText) {
-      case 'SHARE_COUNTRY':
+      case 'input.welcome':
+        console.log("Received action text %s ", response.result.action);
         prepareSendCountry(sender);
         break;
 
