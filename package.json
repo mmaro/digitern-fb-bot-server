@@ -1,7 +1,7 @@
 {
-  "name": "Refugee Information Aid Bot",
+  "name": "refinfoaid",
   "version": "0.1.0",
-  "description": "Facebook bot using digital assistant ai",
+  "description": "Refugee Information Aid Bot/Facebook bot using digital assistant ai",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
