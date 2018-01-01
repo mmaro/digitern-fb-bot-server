@@ -16,7 +16,7 @@ const
   crypto = require('crypto'),
   express = require('express'),
   https = require('https'),
-  request = require('request');
+  request = require('request'),
   apiai = require('apiai');
 
 var app = express();
