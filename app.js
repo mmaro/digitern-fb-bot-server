@@ -522,9 +522,6 @@ function sendFileMessage(recipientId) {
   callSendAPI(messageData);
 }
 
-
-prepareSendAiMessage
-
 /*
  * Prepare send AI text message using the DialogFlow API AI.
  *
@@ -536,6 +533,9 @@ function prepareSendAiMessage(recipientId, messageText) {
   });
 
   apiai.on('response', (response) => {
+    let fulfillmentContent = response.result.fulfillment;
+    console.log("Received fulfillment payload with fulfillment message %s ", fulfillmentContent);
+
     let aiText = response.result.fulfillment.speech;
     console.log(aiText);
 
