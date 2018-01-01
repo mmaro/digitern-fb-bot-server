@@ -540,6 +540,9 @@ function prepareSendAiMessage(recipientId, messageText) {
     console.log(aiText);
 
     switch (aiText) {
+      case 'SHARE_COUNTRY':
+        prepareSendCountry(sender);
+        break;
 
       default:
         sendTextMessage(recipientId, aiText);
@@ -552,6 +555,43 @@ function prepareSendAiMessage(recipientId, messageText) {
   });
 
   apiai.end();
+}
+
+/*
+ * Send a Structured Message (Generic Message type) using the Send API.
+ *
+ */
+function prepareSendCountry(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "rift",
+            subtitle: "Next-generation virtual reality",
+            item_url: "https://www.oculus.com/en-us/rift/",
+            image_url: SERVER_URL + "/assets/digitern-logo.png",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/rift/",
+              title: "WHERE ARE YOU NOW?"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for first bubble",
+            }],
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
 }
 
 /*
@@ -866,6 +906,7 @@ function callSendAPI(messageData) {
     }
   });
 }
+
 
 /* Webhook for API.ai to get response from the 3rd party API */
 app.post('/ai', (req, res) => {
