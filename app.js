@@ -57,11 +57,8 @@ if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   process.exit(1);
 }
 
-
 const CLIENT_ACCESS_TOKEN = process.env.DIALOGFLOW_CLIENT_ACCESS_TOKEN;
-
-
-const CLIENT_ACCESS_TOKEN = apiai(CLIENT_ACCESS_TOKEN);
+const apiaiApp = apiai(CLIENT_ACCESS_TOKEN);
 
 /*
  * Use your own validation token. Check that the token used in the Webhook
